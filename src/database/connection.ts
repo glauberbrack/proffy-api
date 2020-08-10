@@ -1,4 +1,5 @@
 import knex from 'knex';
+import path from 'path';
 
 const db = knex({
     client: 'pg',
@@ -8,6 +9,11 @@ const db = knex({
         user: 'postgres',
         password: '0000'
     },
+    
+    migrations: {
+        tableName: 'knex_migrations',
+        directory: path.resolve('database', 'migrations')
+    }
 })
 
 export default db;
